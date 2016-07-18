@@ -9,3 +9,4 @@ D:\Users\Nischay\OneDrive\Documents\Visual Studio 2015\Projects\Mean Stack Autom
 D:\Users\Nischay\OneDrive\Documents\Visual Studio 2015\Projects\Mean Stack Automation\Mean Stack Automation\obj\Release\Mean Stack Automation.exe
 D:\Users\Nischay\OneDrive\Documents\Visual Studio 2015\Projects\Mean Stack Automation\Mean Stack Automation\obj\Release\Mean Stack Automation.xml
 D:\Users\Nischay\OneDrive\Documents\Visual Studio 2015\Projects\Mean Stack Automation\Mean Stack Automation\obj\Release\Mean Stack Automation.pdb
+D:\Users\Nischay\OneDrive\Documents\Visual Studio 2015\Projects\Mean Stack Automation\Mean Stack Automation\obj\Release\Mean_Stack_Automation.insight.resources
