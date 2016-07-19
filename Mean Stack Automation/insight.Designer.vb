@@ -22,12 +22,17 @@ Partial Class insight
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -54,20 +59,45 @@ Partial Class insight
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Button4)
+        Me.GroupBox1.Controls.Add(Me.Button3)
+        Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Location = New System.Drawing.Point(16, 109)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(522, 111)
+        Me.GroupBox1.Size = New System.Drawing.Size(522, 149)
         Me.GroupBox1.TabIndex = 15
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Available Options"
         '
+        'Button3
+        '
+        Me.Button3.Enabled = False
+        Me.Button3.Font = New System.Drawing.Font("Droid Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Location = New System.Drawing.Point(270, 60)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(236, 23)
+        Me.Button3.TabIndex = 10
+        Me.Button3.Text = "Launch Application"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Font = New System.Drawing.Font("Droid Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Location = New System.Drawing.Point(270, 31)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(236, 23)
+        Me.Button2.TabIndex = 9
+        Me.Button2.Text = "Setup Node"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'Button1
         '
+        Me.Button1.Enabled = False
         Me.Button1.Font = New System.Drawing.Font("Droid Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Location = New System.Drawing.Point(18, 31)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(288, 23)
+        Me.Button1.Size = New System.Drawing.Size(236, 23)
         Me.Button1.TabIndex = 8
         Me.Button1.Text = "Click to start up MongoDB Daemon"
         Me.Button1.UseVisualStyleBackColor = True
@@ -92,11 +122,26 @@ Partial Class insight
         Me.Label2.TabIndex = 17
         Me.Label2.Text = "Cause fancy names are must" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        '
+        'Button4
+        '
+        Me.Button4.Enabled = False
+        Me.Button4.Font = New System.Drawing.Font("Droid Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.Location = New System.Drawing.Point(18, 60)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(236, 23)
+        Me.Button4.TabIndex = 11
+        Me.Button4.Text = "Click to start up MongoDB Console"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
         'insight
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(550, 236)
+        Me.ClientSize = New System.Drawing.Size(550, 270)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.GroupBox1)
@@ -118,4 +163,8 @@ Partial Class insight
     Friend WithEvents Button1 As Button
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label2 As Label
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Timer1 As Timer
+    Friend WithEvents Button4 As Button
 End Class

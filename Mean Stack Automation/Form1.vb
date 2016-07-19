@@ -3,6 +3,9 @@
 Public Class Form1
     Public USerDir As String
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim write As New IO.StreamWriter(My.Application.Info.DirectoryPath & "\version.txt", False)
+        write.WriteLine(My.Application.Info.Version.ToString)
+        write.Close()
         Label3.Text = "Built by Nischay Pro | " & "Build " & My.Application.Info.Version.ToString
         Dim OScurrentpath As String =
         Registry.GetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\IEXPLORE.exe", "Path", "Key does not exist")
@@ -29,6 +32,8 @@ Public Class Form1
     Dim Brackets As Boolean = False
     Dim S7zip As Boolean = False
     Dim AdvancedBrowser As Boolean = False
+    Dim Git As Boolean = False
+    Dim NodePackages As New ListBox
     Private Sub SetupSystem()
         Label4.Text = "Current Status : Checking System"
         wait(500)
@@ -58,6 +63,16 @@ Registry.GetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\
             GroupBox2.Enabled = True
         End If
         wait(500)
+        If NodeJS <> False Then
+            Label4.Text = "Current Status : Reading Node Packages (Global)"
+            Dim vbPath As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
+            If My.Computer.FileSystem.DirectoryExists(vbPath & "\npm") Then
+                For Each item As String In My.Computer.FileSystem.GetDirectories(vbPath & "\npm\node_modules")
+                    NodePackages.Items.Add(item)
+                Next
+            End If
+        End If
+        wait(500)
         Label4.Text = "Current Status : Detecting HTML5 Support Browser"
         Dim browserKeys As RegistryKey
         browserKeys = Registry.LocalMachine.OpenSubKey("SOFTWARE\WOW6432Node\Clients\StartMenuInternet")
@@ -71,6 +86,11 @@ Registry.GetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\
                 AdvancedBrowser = True
             End If
         Next
+        wait(500)
+        Label4.Text = "Current Status : Detecting Git"
+        If My.Computer.FileSystem.DirectoryExists(USerDir & "Program Files\Git") Then
+            Git = True
+        End If
         wait(500)
         Label4.Text = "Current Status : Detection Complete"
         Timer1.Start()
@@ -92,8 +112,24 @@ Registry.GetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\
             Label5.Text += vbNewLine & "A browser with decent HTML5 rendering capabilities was not detected. Please install Firefox or Chrome." & vbNewLine
             count += 1
         End If
+        If Git = False Then
+            Label5.Text += vbNewLine & "Git was not detected. Please install Git to enable full MEAN Stack Development." & vbNewLine
+            count += 1
+        End If
+        Dim ExpressGen As Boolean = False
+        For Each Item As String In NodePackages.Items
+            If Item.Contains("express-generator") Then
+                ExpressGen = True
+            End If
+        Next
+        If ExpressGen = False Then
+            Label5.Text += vbNewLine & "Express Module for Node.JS was Not detected. This is a core file required by the program." & vbNewLine
+            count += 1
+        End If
         If count = 0 Then
             Label5.Text += vbNewLine & "Congratulations your computer has everything ready and installed to support MEAN Stack Development."
+            Button5.Enabled = True
+            Button5.Visible = True
         End If
     End Sub
 
@@ -129,6 +165,7 @@ Registry.GetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\
             For Each OneProcess As Process In Process.GetProcesses
                 If OneProcess.ProcessName = "mongod" Then
                     Process.Start(USerDir & "Program Files\MongoDB\Server\3.2\bin\mongo.exe")
+                    Exit Sub
                 End If
             Next
             Process.Start(USerDir & "Program Files\MongoDB\Server\3.2\bin\mongod.exe")
@@ -189,4 +226,19 @@ Registry.GetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\
         Next
         Return False
     End Function
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        Dim FolderSelectMe As New FolderBrowserDialog
+        FolderSelectMe.SelectedPath = Environment.SpecialFolder.MyDocuments
+        FolderSelectMe.Description = "Select the directory where your project exists."
+        FolderSelectMe.ShowNewFolderButton = True
+        If FolderSelectMe.ShowDialog = DialogResult.OK Then
+            insight.currentprojectpath = FolderSelectMe.SelectedPath
+            insight.USerDir = USerDir
+            insight.Show()
+            Me.Hide()
+
+        End If
+
+    End Sub
 End Class
