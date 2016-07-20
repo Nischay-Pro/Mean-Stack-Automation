@@ -22,5 +22,10 @@ Mean Stack Automation
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="P:Mean_Stack_Automation.My.Resources.Resources._1468888857_circle_back_arrow_outline_stroke">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 </members>
 </doc>

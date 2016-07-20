@@ -37,6 +37,9 @@ Partial Class Form1
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Button5 = New System.Windows.Forms.Button()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -119,7 +122,7 @@ Partial Class Form1
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Droid Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(455, 462)
+        Me.Label3.Location = New System.Drawing.Point(440, 462)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(114, 13)
         Me.Label3.TabIndex = 3
@@ -183,11 +186,30 @@ Partial Class Form1
         Me.Button5.UseVisualStyleBackColor = True
         Me.Button5.Visible = False
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Droid Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(15, 462)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(120, 13)
+        Me.Label6.TabIndex = 14
+        Me.Label6.Text = "Checking for updates"
+        '
+        'Timer2
+        '
+        Me.Timer2.Enabled = True
+        Me.Timer2.Interval = 4000
+        '
+        'BackgroundWorker1
+        '
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(674, 484)
+        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -198,6 +220,7 @@ Partial Class Form1
         Me.Controls.Add(Me.GroupBox1)
         Me.MaximizeBox = False
         Me.Name = "Form1"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Mean Stack Automation"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
@@ -220,4 +243,7 @@ Partial Class Form1
     Friend WithEvents Label5 As Label
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Button5 As Button
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Timer2 As Timer
+    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
 End Class

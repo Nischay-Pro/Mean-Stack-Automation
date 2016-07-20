@@ -1,8 +1,13 @@
-﻿Imports Microsoft.Win32
+﻿Imports System.ComponentModel
+Imports System.IO
+Imports System.Net
+Imports Microsoft.Win32
 
 Public Class Form1
     Public USerDir As String
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        BackgroundWorker1.RunWorkerAsync()
         Dim write As New IO.StreamWriter(My.Application.Info.DirectoryPath & "\version.txt", False)
         write.WriteLine(My.Application.Info.Version.ToString)
         write.Close()
@@ -209,14 +214,14 @@ Registry.GetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\
             End If
         Next
         If CheckItem("mongod") = False Then
-                Button1.Enabled = True
-            End If
-            If CheckItem("mongo") = False Then
-                Button2.Enabled = True
-            End If
-            If CheckItem("node") = False Then
-                Button8.Enabled = True
-            End If
+            Button1.Enabled = True
+        End If
+        If CheckItem("mongo") = False Then
+            Button2.Enabled = True
+        End If
+        If CheckItem("node") = False Then
+            Button8.Enabled = True
+        End If
     End Sub
     Private Function CheckItem(ByVal Name As String)
         For Each item As String In listman.Items
@@ -240,5 +245,45 @@ Registry.GetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\
 
         End If
 
+    End Sub
+    Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
+        Process.Start("https://github.com/Nischay-Pro/Mean-Stack-Automation/releases")
+    End Sub
+    Private Sub CheckUpdates()
+        Dim address As String = "https://github.com/Nischay-Pro/Mean-Stack-Automation/raw/master/Mean%20Stack%20Automation/bin/Release/version.txt"
+        Dim client As WebClient = New WebClient()
+        Dim reader As StreamReader = New StreamReader(client.OpenRead(address))
+        Dim Result As String = reader.ReadLine
+        reader.Close()
+        If Result <> My.Application.Info.Version.ToString Then
+            SetLabelText("A newer build is available v" & Result & "")
+            If MessageBox.Show("A newer version is available. Do you wish you download the newer update?", "Newer Update Available", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = DialogResult.Yes Then
+                Process.Start("https://github.com/Nischay-Pro/Mean-Stack-Automation/releases")
+            End If
+        Else
+            HideLabelText(False)
+        End If
+    End Sub
+
+    Private Sub SetLabelText(ByVal text As String)
+        If Label6.InvokeRequired Then
+            Label6.Invoke(New SetText(AddressOf SetLabelText), text)
+        Else
+            Label6.Text = text
+        End If
+    End Sub
+    Public Delegate Sub SetText(text As String)
+
+    Private Sub HideLabelText(ByVal hide As Boolean)
+        If Label6.InvokeRequired Then
+            Label6.Invoke(New HideLabel(AddressOf SetLabelText), hide)
+        Else
+            Label6.Visible = hide
+        End If
+    End Sub
+    Public Delegate Sub HideLabel(hide As Boolean)
+
+    Private Sub BackgroundWorker1_DoWork(sender As Object, e As DoWorkEventArgs) Handles BackgroundWorker1.DoWork
+        CheckUpdates()
     End Sub
 End Class
