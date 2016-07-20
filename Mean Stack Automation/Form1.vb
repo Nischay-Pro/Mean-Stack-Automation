@@ -254,7 +254,7 @@ Registry.GetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\
         Dim client As WebClient = New WebClient()
         client.DownloadFile(address, "current.txt")
         Dim Result As String = My.Computer.FileSystem.ReadAllText("current.txt")
-        Kill("current.txt")
+        Result = Result.Substring(0, Result.Length - 1)
         If Result <> My.Application.Info.Version.ToString Then
             SetLabelText("A newer build is available v" & Result & "")
             If MessageBox.Show("A newer version is available. Do you wish you download the newer update?", "Newer Update Available", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = DialogResult.Yes Then
@@ -276,7 +276,7 @@ Registry.GetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\
 
     Private Sub HideLabelText(ByVal hide As Boolean)
         If Label6.InvokeRequired Then
-            Label6.Invoke(New HideLabel(AddressOf SetLabelText), hide)
+            Label6.Invoke(New HideLabel(AddressOf HideLabelText), hide)
         Else
             Label6.Visible = hide
         End If
