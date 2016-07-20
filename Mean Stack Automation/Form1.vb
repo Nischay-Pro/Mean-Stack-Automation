@@ -252,8 +252,9 @@ Registry.GetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\
     Private Sub CheckUpdates()
         Dim address As String = "https://raw.githubusercontent.com/Nischay-Pro/Mean-Stack-Automation/master/Mean%20Stack%20Automation/bin/Release/version.txt"
         Dim client As WebClient = New WebClient()
-        Dim Result As String = client.DownloadString(address)
-        MsgBox(Result)
+        client.DownloadFile(address, "current.txt")
+        Dim Result As String = My.Computer.FileSystem.ReadAllText("current.txt")
+        Kill("current.txt")
         If Result <> My.Application.Info.Version.ToString Then
             SetLabelText("A newer build is available v" & Result & "")
             If MessageBox.Show("A newer version is available. Do you wish you download the newer update?", "Newer Update Available", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = DialogResult.Yes Then
