@@ -250,11 +250,10 @@ Registry.GetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\
         Process.Start("https://github.com/Nischay-Pro/Mean-Stack-Automation/releases")
     End Sub
     Private Sub CheckUpdates()
-        Dim address As String = "https://github.com/Nischay-Pro/Mean-Stack-Automation/raw/master/Mean%20Stack%20Automation/bin/Release/version.txt"
+        Dim address As String = "https://raw.githubusercontent.com/Nischay-Pro/Mean-Stack-Automation/master/Mean%20Stack%20Automation/bin/Release/version.txt"
         Dim client As WebClient = New WebClient()
-        Dim reader As StreamReader = New StreamReader(client.OpenRead(address))
-        Dim Result As String = reader.ReadLine
-        reader.Close()
+        Dim Result As String = client.DownloadString(address)
+        MsgBox(Result)
         If Result <> My.Application.Info.Version.ToString Then
             SetLabelText("A newer build is available v" & Result & "")
             If MessageBox.Show("A newer version is available. Do you wish you download the newer update?", "Newer Update Available", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = DialogResult.Yes Then
