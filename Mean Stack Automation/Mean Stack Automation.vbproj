@@ -52,6 +52,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
     <OutputPath>bin\Test\</OutputPath>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>1469054553_SDKs_copy_nodeJS.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -137,6 +140,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\1468888857_circle-back-arrow-outline-stroke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="1469054553_SDKs_copy_nodeJS.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
