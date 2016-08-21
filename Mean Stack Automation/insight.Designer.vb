@@ -31,9 +31,10 @@ Partial Class insight
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -51,10 +52,10 @@ Partial Class insight
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Steiner", 22.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(163, 22)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(206, 35)
+        Me.Label1.Size = New System.Drawing.Size(192, 36)
         Me.Label1.TabIndex = 14
         Me.Label1.Text = "InSight Mode"
         '
@@ -114,16 +115,6 @@ Partial Class insight
         Me.Button1.Text = "Click to start up MongoDB Daemon"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Mean_Stack_Automation.My.Resources.Resources._1468888857_circle_back_arrow_outline_stroke
-        Me.PictureBox1.Location = New System.Drawing.Point(16, 12)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(48, 48)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 16
-        Me.PictureBox1.TabStop = False
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -138,6 +129,22 @@ Partial Class insight
         '
         Me.Timer1.Enabled = True
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Mean_Stack_Automation.My.Resources.Resources._1468888857_circle_back_arrow_outline_stroke
+        Me.PictureBox1.Location = New System.Drawing.Point(16, 12)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(48, 48)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 16
+        Me.PictureBox1.TabStop = False
+        '
+        'NotifyIcon1
+        '
+        Me.NotifyIcon1.Icon = CType(resources.GetObject("NotifyIcon1.Icon"), System.Drawing.Icon)
+        Me.NotifyIcon1.Text = "Mean Stack Automation"
+        Me.NotifyIcon1.Visible = True
+        '
         'insight
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -148,6 +155,7 @@ Partial Class insight
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label4)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "insight"
@@ -169,4 +177,5 @@ Partial Class insight
     Friend WithEvents Button2 As Button
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Button4 As Button
+    Friend WithEvents NotifyIcon1 As NotifyIcon
 End Class

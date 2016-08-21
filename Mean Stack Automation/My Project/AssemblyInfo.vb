@@ -9,7 +9,7 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("Mean Stack Automation")>
-<Assembly: AssemblyDescription("")>
+<Assembly: AssemblyDescription("Automate basic tasks and stuff")>
 <Assembly: AssemblyCompany("")>
 <Assembly: AssemblyProduct("Mean Stack Automation")>
 <Assembly: AssemblyCopyright("Copyright ©  2016")>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.0.6046.125")>
-<Assembly: AssemblyFileVersion("1.0.6046.125")>
+<Assembly: AssemblyVersion("1.0.6078.140")>
+<Assembly: AssemblyFileVersion("1.0.6078.140")>

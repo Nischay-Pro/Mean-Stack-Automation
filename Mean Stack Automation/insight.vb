@@ -77,6 +77,15 @@ Public Class insight
         Next
         Return False
     End Function
+
+    Private Sub NotifyIcon1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles NotifyIcon1.MouseDoubleClick
+        Me.Show()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+
+    End Sub
+
     Private Sub wait(ByVal interval As Integer)
         Dim sw As New Stopwatch
         sw.Start()

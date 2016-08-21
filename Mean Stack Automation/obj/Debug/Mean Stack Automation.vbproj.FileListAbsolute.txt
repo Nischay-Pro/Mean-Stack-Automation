@@ -21,3 +21,16 @@ D:\Users\Nischay\OneDrive\Documents\Visual Studio 2015\Projects\Mean Stack Autom
 D:\Users\Nischay\OneDrive\Documents\Visual Studio 2015\Projects\Mean Stack Automation\Mean Stack Automation\obj\Debug\Mean_Stack_Automation.insight.resources
 D:\Users\Nischay\OneDrive\Documents\Visual Studio 2015\Projects\Mean Stack Automation\Mean Stack Automation\obj\Debug\Mean_Stack_Automation.Resources.resources
 D:\Users\Nischay\OneDrive\Documents\Visual Studio 2015\Projects\Mean Stack Automation\Mean Stack Automation\obj\Debug\Mean Stack Automation.vbproj.GenerateResource.Cache
+C:\Users\Nisch\OneDrive\Documents\Visual Studio 2015\Projects\Mean Stack Automation\Mean Stack Automation\bin\Debug\Mean Stack Automation.exe.config
+C:\Users\Nisch\OneDrive\Documents\Visual Studio 2015\Projects\Mean Stack Automation\Mean Stack Automation\obj\Debug\Mean Stack Automation.exe
+C:\Users\Nisch\OneDrive\Documents\Visual Studio 2015\Projects\Mean Stack Automation\Mean Stack Automation\obj\Debug\Mean Stack Automation.xml
+C:\Users\Nisch\OneDrive\Documents\Visual Studio 2015\Projects\Mean Stack Automation\Mean Stack Automation\obj\Debug\Mean Stack Automation.pdb
+C:\Users\Nisch\OneDrive\Documents\Visual Studio 2015\Projects\Mean Stack Automation\Mean Stack Automation\bin\Debug\Mean Stack Automation.exe
+C:\Users\Nisch\OneDrive\Documents\Visual Studio 2015\Projects\Mean Stack Automation\Mean Stack Automation\bin\Debug\Mean Stack Automation.pdb
+C:\Users\Nisch\OneDrive\Documents\Visual Studio 2015\Projects\Mean Stack Automation\Mean Stack Automation\bin\Debug\Mean Stack Automation.xml
+C:\Users\Nisch\OneDrive\Documents\Visual Studio 2015\Projects\Mean Stack Automation\Mean Stack Automation\obj\Debug\Mean Stack Automation.vbprojResolveAssemblyReference.cache
+C:\Users\Nisch\OneDrive\Documents\Visual Studio 2015\Projects\Mean Stack Automation\Mean Stack Automation\obj\Debug\Mean_Stack_Automation.Form1.resources
+C:\Users\Nisch\OneDrive\Documents\Visual Studio 2015\Projects\Mean Stack Automation\Mean Stack Automation\obj\Debug\Mean_Stack_Automation.insight.resources
+C:\Users\Nisch\OneDrive\Documents\Visual Studio 2015\Projects\Mean Stack Automation\Mean Stack Automation\obj\Debug\Mean_Stack_Automation.Resources.resources
+C:\Users\Nisch\OneDrive\Documents\Visual Studio 2015\Projects\Mean Stack Automation\Mean Stack Automation\obj\Debug\Mean Stack Automation.vbproj.GenerateResource.Cache
+C:\Users\Nisch\OneDrive\Documents\Visual Studio 2015\Projects\Mean Stack Automation\Mean Stack Automation\obj\Debug\Mean_Stack_Automation.install.resources

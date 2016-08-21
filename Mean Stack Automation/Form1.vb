@@ -78,7 +78,7 @@ Registry.GetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\
             End If
         End If
         wait(500)
-        Label4.Text = "Current Status : Detecting HTML5 Support Browser"
+        Label4.Text = "Current Status : Detecting HTML5 Supported Browser"
         Dim browserKeys As RegistryKey
         browserKeys = Registry.LocalMachine.OpenSubKey("SOFTWARE\WOW6432Node\Clients\StartMenuInternet")
         If browserKeys Is Nothing Then
@@ -128,13 +128,16 @@ Registry.GetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\
             End If
         Next
         If ExpressGen = False Then
-            Label5.Text += vbNewLine & "Express Module for Node.JS was Not detected. This is a core file required by the program." & vbNewLine
+            Label5.Text += vbNewLine & "Express Module for Node.JS was not detected. This is a core file required by the program." & vbNewLine
             count += 1
         End If
         If count = 0 Then
             Label5.Text += vbNewLine & "Congratulations your computer has everything ready and installed to support MEAN Stack Development."
             Button5.Enabled = True
             Button5.Visible = True
+        Else
+            Button6.Enabled = True
+            Button6.Visible = True
         End If
     End Sub
 
@@ -250,19 +253,23 @@ Registry.GetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\
         Process.Start("https://github.com/Nischay-Pro/Mean-Stack-Automation/releases")
     End Sub
     Private Sub CheckUpdates()
-        Dim address As String = "https://raw.githubusercontent.com/Nischay-Pro/Mean-Stack-Automation/master/Mean%20Stack%20Automation/bin/Release/version.txt"
-        Dim client As WebClient = New WebClient()
-        client.DownloadFile(address, "current.txt")
-        Dim Result As String = My.Computer.FileSystem.ReadAllText("current.txt")
-        Result = Result.Substring(0, Result.Length - 1)
-        If Result <> My.Application.Info.Version.ToString Then
-            SetLabelText("A newer build is available v" & Result & "")
-            If MessageBox.Show("A newer version is available. Do you wish you download the newer update?", "Newer Update Available", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = DialogResult.Yes Then
-                Process.Start("https://github.com/Nischay-Pro/Mean-Stack-Automation/releases")
+        Try
+            Dim address As String = "https://raw.githubusercontent.com/Nischay-Pro/Mean-Stack-Automation/master/Mean%20Stack%20Automation/bin/Release/version.txt"
+            Dim client As WebClient = New WebClient()
+            client.DownloadFile(address, "current.txt")
+            Dim Result As String = My.Computer.FileSystem.ReadAllText("current.txt")
+            Result = Result.Substring(0, Result.Length - 1)
+            If Result <> My.Application.Info.Version.ToString Then
+                SetLabelText("A newer build is available v" & Result & "")
+                If MessageBox.Show("A newer version is available. Do you wish you download the newer update?", "Newer Update Available", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = DialogResult.Yes Then
+                    Process.Start("https://github.com/Nischay-Pro/Mean-Stack-Automation/releases")
+                End If
+            Else
+                HideLabelText(False)
             End If
-        Else
-            HideLabelText(False)
-        End If
+        Catch ex As Exception
+            SetLabelText("No network connection :(")
+        End Try
     End Sub
 
     Private Sub SetLabelText(ByVal text As String)
@@ -285,5 +292,17 @@ Registry.GetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\
 
     Private Sub BackgroundWorker1_DoWork(sender As Object, e As DoWorkEventArgs) Handles BackgroundWorker1.DoWork
         CheckUpdates()
+    End Sub
+
+    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
+        Process.Start("https://github.com/Nischay-Pro/Mean-Stack-Automation")
+    End Sub
+
+    Private Sub NotifyIcon1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles NotifyIcon1.MouseDoubleClick
+        Me.Show()
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        install.Show()
     End Sub
 End Class
