@@ -70,12 +70,15 @@ Registry.GetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\
         wait(500)
         If NodeJS <> False Then
             Label4.Text = "Current Status : Reading Node Packages (Global)"
-            Dim vbPath As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
-            If My.Computer.FileSystem.DirectoryExists(vbPath & "\npm") Then
-                For Each item As String In My.Computer.FileSystem.GetDirectories(vbPath & "\npm\node_modules")
-                    NodePackages.Items.Add(item)
-                Next
-            End If
+            Try
+                Dim vbPath As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
+                If My.Computer.FileSystem.DirectoryExists(vbPath & "\npm") Then
+                    For Each item As String In My.Computer.FileSystem.GetDirectories(vbPath & "\npm\node_modules")
+                        NodePackages.Items.Add(item)
+                    Next
+                End If
+            Catch ex As Exception
+            End Try
         End If
         wait(500)
         Label4.Text = "Current Status : Detecting HTML5 Supported Browser"
@@ -85,7 +88,6 @@ Registry.GetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\
             browserKeys = Registry.LocalMachine.OpenSubKey("SOFTWARE\Clients\StartMenuInternet")
         End If
         Dim browserNames As String() = browserKeys.GetSubKeyNames()
-
         For Each item As String In browserNames
             If item.ToLower = "firefox.exe" Or item = "Google Chrome" Or item = "Opera" Or item = "OperaStable" Then
                 AdvancedBrowser = True
@@ -97,7 +99,7 @@ Registry.GetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\
             Git = True
         End If
         wait(500)
-        Label4.Text = "Current Status : Detection Complete. Click Here to refresh"
+        Label4.Text = "Current Status : Detection Complete. Click Here to refresh."
         Timer1.Start()
         Label5.Visible = True
         GenerateReport()
@@ -123,7 +125,7 @@ Registry.GetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\
         End If
         Dim ExpressGen As Boolean = False
         For Each Item As String In NodePackages.Items
-            If Item.Contains("express-generator") Then
+            If Item.Contains("express-generator") Or Item.Contains("express") Then
                 ExpressGen = True
             End If
         Next
@@ -187,7 +189,6 @@ Registry.GetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         If MessageBox.Show("Are you sure you want to wipe your MongoDB Database?", "Confirm Wipe", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.Yes Then
             Try
-                MsgBox(USerDir)
                 My.Computer.FileSystem.DeleteDirectory(USerDir & "data\db", FileIO.DeleteDirectoryOption.DeleteAllContents)
                 My.Computer.FileSystem.CreateDirectory(USerDir & "data\db")
                 MsgBox("Database Wipe Success.", MsgBoxStyle.Information, "MongoDB Wipe Success")
@@ -306,9 +307,19 @@ Registry.GetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\
     End Sub
 
     Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
-        Label5.Visible = False
-        Label5.Text = "Report :"
-        SetupSystem()
+        If Label4.Text = "Current Status : Detection Complete. Click Here to refresh." Then
+            Label5.Visible = False
+            Label5.Text = "Report :"
+            SetupSystem()
+        End If
+    End Sub
 
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        Dim p As String() = My.User.Name.Split("\")
+        Process.Start("cmd.exe", "/K cd C:\Users\" & p(1))
+    End Sub
+
+    Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
+        Process.Start(USerDir & "Program Files\nodejs\nodevars.bat", "/K Pause")
     End Sub
 End Class
