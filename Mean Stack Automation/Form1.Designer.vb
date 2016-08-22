@@ -106,10 +106,10 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Calibri", 23.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(78, 18)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(427, 36)
+        Me.Label1.Size = New System.Drawing.Size(408, 38)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Mean Stack Automation Toolkit"
         '
@@ -127,11 +127,11 @@ Partial Class Form1
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Droid Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(440, 462)
+        Me.Label3.Location = New System.Drawing.Point(404, 462)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(114, 13)
+        Me.Label3.Size = New System.Drawing.Size(154, 13)
         Me.Label3.TabIndex = 3
-        Me.Label3.Text = "Built by Nischay Pro"
+        Me.Label3.Text = "Built with 💖 by Nischay Pro"
         '
         'GroupBox2
         '

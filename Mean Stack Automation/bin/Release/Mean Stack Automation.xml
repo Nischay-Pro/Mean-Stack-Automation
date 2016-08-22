@@ -27,5 +27,40 @@ Mean Stack Automation
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Mean_Stack_Automation.My.Resources.Resources._1469054553_SDKs_copy_nodeJS">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Mean_Stack_Automation.My.Resources.Resources.expressjs">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Mean_Stack_Automation.My.Resources.Resources.images">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Mean_Stack_Automation.My.Resources.Resources.mongodb_logo">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Mean_Stack_Automation.My.Resources.Resources.mongodb_logo_white">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Mean_Stack_Automation.My.Resources.Resources.nodejs">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Mean_Stack_Automation.My.Resources.Resources.plainicon_com_55072_w_256px_2889">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 </members>
 </doc>

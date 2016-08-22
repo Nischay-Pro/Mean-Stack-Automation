@@ -11,7 +11,7 @@ Public Class Form1
         Dim write As New IO.StreamWriter(My.Application.Info.DirectoryPath & "\version.txt", False)
         write.WriteLine(My.Application.Info.Version.ToString)
         write.Close()
-        Label3.Text = "Built by Nischay Pro | " & "Build " & My.Application.Info.Version.ToString
+        Label3.Text = "Built with 💖 by Nischay Pro | " & "Build " & My.Application.Info.Version.ToString
         Dim OScurrentpath As String =
         Registry.GetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\IEXPLORE.exe", "Path", "Key does not exist")
         If OScurrentpath <> "Key does not exist" Then
@@ -97,7 +97,7 @@ Registry.GetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\
             Git = True
         End If
         wait(500)
-        Label4.Text = "Current Status : Detection Complete"
+        Label4.Text = "Current Status : Detection Complete. Click Here to refresh"
         Timer1.Start()
         Label5.Visible = True
         GenerateReport()
@@ -110,7 +110,7 @@ Registry.GetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\
             count += 1
         End If
         If NodeJS = False Then
-            Label5.Text += vbNewLine & "NodeJS was not detected. Please install NodeJS to enable full MEAN Stack Development." & vbNewLine
+            Label5.Text += vbNewLine & "Node.JS was not detected. Please install NodeJS to enable full MEAN Stack Development." & vbNewLine
             count += 1
         End If
         If AdvancedBrowser = False Then
@@ -179,7 +179,6 @@ Registry.GetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\
             Process.Start(USerDir & "Program Files\MongoDB\Server\3.2\bin\mongod.exe")
             wait(2000)
             Process.Start(USerDir & "Program Files\MongoDB\Server\3.2\bin\mongo.exe")
-
         Catch ex As Exception
             MsgBox("Please reinstall MongoDB.", MsgBoxStyle.Exclamation, "MongoDB Corrupt")
         End Try
@@ -304,5 +303,12 @@ Registry.GetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
         install.Show()
+    End Sub
+
+    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
+        Label5.Visible = False
+        Label5.Text = "Report :"
+        SetupSystem()
+
     End Sub
 End Class
